@@ -157,8 +157,8 @@ nav {
 /* 3. PC (Grande): Flexbox para centrar los sobrantes */
 @media (min-width: 1200px) {
     .grid-productos {
-        display: flex;         
-        flex-wrap: wrap;       
+        display: flex;        
+        flex-wrap: wrap;      
         justify-content: center; 
         gap: 40px;
     }
@@ -177,10 +177,11 @@ nav {
     overflow: hidden; 
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid #252525;
+    position: relative; /* Necesario para la etiqueta de oferta */
 }
 
 .card-producto:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) !important;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
     border-color: #333;
 }
@@ -258,12 +259,6 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-}
-
-.precio {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffcc00;
 }
 
 .btn-whatsapp {
@@ -509,7 +504,7 @@ footer p {
 }
 
 /* =========================================
-   ¡NUEVO! ESTILOS PARA LAS FLECHAS DEL VISOR
+   ESTILOS PARA LAS FLECHAS DEL VISOR
    ========================================= */
 .visor-btn {
     cursor: pointer;
@@ -550,4 +545,57 @@ footer p {
         font-size: 30px;
         padding: 10px;
     }
+}
+
+/* =========================================
+   NUEVO: ESTILOS DE LA PROMO 15% OFF
+   ========================================= */
+
+/* 1. Barra de Anuncio Superior */
+.promo-bar {
+    background-color: #ffcc00; /* Amarillo Urbano */
+    color: #000;
+    text-align: center;
+    padding: 8px 0;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1001; /* Encima del menú */
+}
+
+/* 2. Etiqueta Roja de Descuento */
+.badge-off {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #E50914; /* Rojo oferta */
+    color: white;
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 3px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* 3. Precios (Viejo y Nuevo) */
+.precio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.precio-viejo {
+    font-size: 0.9rem;
+    color: #777;
+    text-decoration: line-through; /* Tachado */
+    margin-bottom: -5px;
+}
+
+.precio-nuevo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffcc00;
 }
